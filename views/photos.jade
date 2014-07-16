@@ -1,0 +1,74 @@
+doctype html
+html(lang="en")
+  head
+    |<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    meta(charset="utf-8")
+    title Tokune & Jane Image Gallery
+    meta(name="description", content="big")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css")
+    link(rel="stylesheet", href="http://blueimp.github.io/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.css")
+    link(rel="stylesheet", href="http://blueimp.github.io/Bootstrap-Image-Gallery/css/demo.css")
+  body
+    .container
+      h1 Tokune & Jane Image Gallery
+      button.btn.btn-default.prev-page(type="button") 上一页
+      button.btn.btn-primary.next-page(type="button") 下一页
+      #links
+    #blueimp-gallery.blueimp-gallery
+      .slides
+      h3.title
+      a.prev ‹
+      a.next ›
+      a.close x
+      a.play-pause
+      ol.indicator
+      .modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type="button", aria-hidden="true") &times;
+              h4.modal-title
+            .modal-body.next
+            .modal-footer
+              button.btn.btn-default.pull-left.prev(type="button")
+                i.glyphicon.glyphicon-chevron-left
+                != Previous
+              button.btn.btn-primary.next(type="button")
+                != Next
+                i.glyphicon.glyphicon-chevron-right
+  script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+  script(src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js")
+  script(src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js")
+  script(src="http://blueimp.github.io/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.js")
+  script.
+    var currentPage = 1;
+    var loadPics = function(page){
+      $.ajax({
+          url: '/data/?p=' + page,
+      }).done(function (result) {
+          currentPage = page;
+          var linksContainer = $('#links');
+          var linksObject =document.getElementById('links');
+          linksObject.innerHTML = '';
+          $.each(result.photos, function (index, photo) {
+              $('<a/>')
+                  .append($('<img>').prop('src', photo).prop('width', 120).prop('height', 90))
+                  .prop('href', photo)
+                  .prop('title', 'img')
+                  .attr('data-gallery', '')
+                  .appendTo(linksContainer);
+          });
+      });
+    }
+    loadPics(currentPage);
+    $('.prev-page').click(function(){
+      if(currentPage === 1) return alert("已经第一页");
+      currentPage--;
+      loadPics(currentPage);
+    });
+    $('.next-page').click(function(){
+      currentPage++;
+      loadPics(currentPage);
+    });

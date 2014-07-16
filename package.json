@@ -1,0 +1,19 @@
+{
+  "name": "photos",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "1.4.3",
+    "express": "4.6.1",
+    "jade": "1.4.1",
+    "express-session": "1.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
