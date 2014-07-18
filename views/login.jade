@@ -1,22 +1,14 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="")
-    meta(name="author", content="")
-    link(rel="icon" href="/img/favicon.ico")
-    title Photos
-    link(rel="stylesheet", href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css")
+extends layout
+
+block head
     link(href="/css/signin.css", rel="stylesheet")
     |<!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
     script(src="/js/ie-emulation-modes-warning.js")
     script(src="/js/ie10-viewport-bug-workaround.js")
     |<!--[if lt IE 9]><script src="/js/html5shiv.min.js"></script><script src="/js/respond.min.js"></script><![endif]-->
-  body
-    .container
-      form.form-signin(role="form", method="post")
-        h2.form-signin-heading Please sign in
-        input.form-control(type="password", name="pwd", placeholder="Password", required, autofocus)
-        button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+
+block body
+  form.form-signin(role="form", method="post")
+    h2.form-signin-heading Please sign in
+    input.form-control(type="password", name="pwd", placeholder="Password", required, autofocus)
+    button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in

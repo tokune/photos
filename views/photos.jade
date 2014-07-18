@@ -1,43 +1,40 @@
-doctype html
-html(lang="en")
-  head
-    |<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    meta(charset="utf-8")
-    title Tokune & Jane Image Gallery
-    meta(name="description", content="big")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="http://cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css")
-    link(rel="stylesheet", href="/css/blueimp-gallery.min.css")
-    link(rel="stylesheet", href="/css/bootstrap-image-gallery.css")
-    link(rel="stylesheet", href="/css/main.css")
-  body
-    .container
-      h1 Tokune & Jane Image Gallery
-      button.btn.btn-default.prev-page(type="button") 上一页
-      button.btn.btn-primary.next-page(type="button") 下一页
-      #links
-    #blueimp-gallery.blueimp-gallery
-      .slides
-      h3.title
-      a.prev ‹
-      a.next ›
-      a.close x
-      a.play-pause
-      ol.indicator
-      .modal.fade
-        .modal-dialog
-          .modal-content
-            .modal-header
-              button.close(type="button", aria-hidden="true") &times;
-              h4.modal-title
-            .modal-body.next
-            .modal-footer
-              button.btn.btn-default.pull-left.prev(type="button")
-                i.glyphicon.glyphicon-chevron-left
-                != Previous
-              button.btn.btn-primary.next(type="button")
-                != Next
-                i.glyphicon.glyphicon-chevron-right
+extends layout
+
+block head
+  |<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  link(rel="stylesheet", href="/css/blueimp-gallery.min.css")
+  link(rel="stylesheet", href="/css/bootstrap-image-gallery.css")
+  link(rel="stylesheet", href="/css/main.css")
+
+block body
+  h1 Tokune & Jane Image Gallery
+  button.btn.btn-default.prev-page(type="button") 上一页
+  button.btn.btn-primary.next-page(type="button") 下一页
+  #links
+  #blueimp-gallery.blueimp-gallery
+    .slides
+    h3.title
+    a.prev ‹
+    a.next ›
+    a.close x
+    a.play-pause
+    ol.indicator
+    .modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type="button", aria-hidden="true") &times;
+            h4.modal-title
+          .modal-body.next
+          .modal-footer
+            button.btn.btn-default.pull-left.prev(type="button")
+              i.glyphicon.glyphicon-chevron-left
+              != Previous
+            button.btn.btn-primary.next(type="button")
+              != Next
+              i.glyphicon.glyphicon-chevron-right
+
+block script
   script(src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js")
   script(src="http://cdn.bootcss.com/bootstrap/3.0.2/js/bootstrap.min.js")
   script(src="/js/jquery.blueimp-gallery.min.js")
