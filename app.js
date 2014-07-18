@@ -8,9 +8,12 @@ var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(session({
-    secret: 'tokunejane'
+    secret            : 'tokunejane',
+    resave            : true,
+    saveUninitialized : true
 }))
 app.use(login_middleware);
 
