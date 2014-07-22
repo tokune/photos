@@ -29,3 +29,9 @@ a:hover {
 	overflow: auto;
 	color: #333;
 }
+.nav {
+    padding-bottom: 15px;
+}
+.next-page {
+    margin-left:10px;
+}
