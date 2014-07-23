@@ -1,5 +1,5 @@
 module.exports = {             
-    perpage       : 54,
+    perpage       : 60,
     password      : 'tokune',
     sessionSecret : 'tokunejane',
     title         : 'Tokune & Jane Image Gallery',
