@@ -25,7 +25,7 @@ var square = function(path,callback) {
             next()
         },
         function(next){
-            img.thumb(120, 120, path.replace('/pictures/origin/', '/pictures/square/'), 100, next);
+            img.thumb(75, 75, path.replace('/pictures/origin/', '/pictures/square/'), 80, next);
         }
     ], callback);
 }

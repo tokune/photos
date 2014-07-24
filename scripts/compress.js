@@ -39,7 +39,7 @@ var batch = function(err, result) {
         img.size(function(err,size){
             if(err) return done(err);
         	console.log('compressing ' + path);
-        	img.thumb(1000, size.height/size.width*1000, path.replace('/pictures/origin', '/pictures/compress/'), 100, done);
+            img.thumb(1000, size.height/size.width*1000, path.replace('/pictures/origin', '/pictures/compress/'), 80, done);
         });
     }, function(err){
         if(err) return console.log(err);
