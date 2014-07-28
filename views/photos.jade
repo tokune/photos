@@ -42,6 +42,17 @@ block script
   script(src="/js/bootstrap-image-gallery.js")
   script.
     var currentPage = 1;
+    var photos = [];
+    var appendPhoto = function(){
+      var photo = photos.pop();
+      var linksContainer = $('#links');
+      $('<a/>')
+        .append($('<img>').prop('src', photo.replace(/\/origin\/|\/compress\//, '/square/')).prop('width', 75).prop('height', 75).attr('onload', 'appendPhoto()'))
+        .prop('href', photo)
+        .prop('title', 'img')
+        .attr('data-gallery', '')
+        .appendTo(linksContainer);
+    }
     var loadPics = function(page) {
       $.ajax({
           url: '/data/?p=' + page,
@@ -50,14 +61,8 @@ block script
           var linksContainer = $('#links');
           var linksObject =document.getElementById('links');
           linksObject.innerHTML = '';
-          $.each(result.photos, function(index, photo) {
-              $('<a/>')
-                  .append($('<img>').prop('src', photo.replace(/\/origin\/|\/compress\//, '/square/')).prop('width', 75).prop('height', 75))
-                  .prop('href', photo)
-                  .prop('title', 'img')
-                  .attr('data-gallery', '')
-                  .appendTo(linksContainer);
-          });
+          photos = result.photos;
+          appendPhoto();
       });
     }
     loadPics(currentPage);
