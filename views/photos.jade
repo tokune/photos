@@ -44,6 +44,7 @@ block script
     var currentPage = 1;
     var photos = [];
     var appendPhoto = function(){
+      if (photos.length < 1) return false;
       var photo = photos.pop();
       var linksContainer = $('#links');
       $('<a/>')
