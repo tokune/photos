@@ -13,7 +13,7 @@
 .blueimp-gallery .modal-body {
 	position: relative;
 	text-align: center;
-	padding: 0 0 56.25% 0;
+	padding: 0 0 70% 0;
 	overflow: hidden;
 	cursor: pointer;
 }
@@ -75,13 +75,28 @@
 	content: none;
 }
 
+.blueimp-gallery .modal-dialog {
+  right: auto;
+  left: auto;
+  width: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 @media screen and (min-width: 768px) {
   .blueimp-gallery .modal-dialog {
-    right: auto;
-    left: auto;
-	width: auto;
-    max-width: 900px;
-    padding-left: 5%;
-    padding-right: 5%;
+    max-width: 650px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blueimp-gallery .modal-dialog {
+    max-width: 950px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .blueimp-gallery .modal-dialog {
+    max-width: 1264px;
   }
 }
