@@ -45,7 +45,7 @@ block script
     var photos = [];
     var appendPhoto = function(){
       if (photos.length < 1) return false;
-      var photo = photos.pop();
+      var photo = photos.shift();
       var linksContainer = $('#links');
       $('<a/>')
         .append($('<img>').prop('src', photo.replace(/\/origin\/|\/compress\//, '/square/')).prop('width', 75).prop('height', 75).attr('onload', 'appendPhoto()'))
@@ -58,6 +58,10 @@ block script
       $.ajax({
           url: '/data/?p=' + page,
       }).done(function(result) {
+          if (result && result.photos && result.photos.length === 0) {
+            currentPage--;
+            return alert('这是最后一页');
+          }
           currentPage = page;
           var linksContainer = $('#links');
           var linksObject =document.getElementById('links');

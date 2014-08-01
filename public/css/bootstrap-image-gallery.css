@@ -83,19 +83,25 @@
   padding-right: 5%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .blueimp-gallery .modal-dialog {
-    max-width: 650px;
+    max-width: 850px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .blueimp-gallery .modal-dialog {
     max-width: 950px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1600px) {
+  .blueimp-gallery .modal-dialog {
+    max-width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
   .blueimp-gallery .modal-dialog {
     max-width: 1264px;
   }
